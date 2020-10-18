@@ -35,7 +35,7 @@ function RealEstateList(props) {
                         </tr>
                     </thead>
                     <tbody>
-                    {realEstateList.map((element) => {
+                    {realEstateList.length > 0 ? realEstateList.map((element) => {
                         return (
                             <tr key={element.id}>
                                 {tableColumns.map(column => (
@@ -43,7 +43,7 @@ function RealEstateList(props) {
                                 ))}
                             </tr>
                         )
-                    })}
+                    }) : <tr><td colSpan={11}>Nothing to show</td></tr>}
                     </tbody>
                 </table>
             </div>
@@ -59,12 +59,12 @@ const mapDispatchToProps = dispatch => {
 };
 
 function mapStateToProps(state) {
-    const {realEstateList, isFetching, filter, realEstateTypeFilter} = state.realEstateReducer;
+    const { realEstateList, isFetching, filter, realEstateTypeFilter } = state.realEstateReducer;
     return {
         realEstateList,
         isFetching,
         filter,
-        realEstateTypeFilter
+        realEstateTypeFilter,
     }
 }
 
