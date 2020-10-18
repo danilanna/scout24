@@ -100,9 +100,38 @@ a:hover {
   background-color: #229D02;
 }
 
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+.form-inline select, .form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: initial;
+}
+.form-inline button:hover {
+  background-color: royalblue;
+}
+
 @media screen and (max-width: 599px) {
   .labelField, .inputField, input[type=submit] {
     width: 100%;
     margin-top: 0;
+  }
+  .form-inline input[type=text] {
+    margin: 10px 0;
+  }
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

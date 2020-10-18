@@ -7,11 +7,11 @@ import tableColumns from "./TableColumns";
 import Alert from "../common/Alert";
 
 function RealEstateList(props) {
-    const { realEstateList, isFetching, fetchRealEstate, filter } = props;
+    const { realEstateList, isFetching, fetchRealEstate, filter, realEstateTypeFilter } = props;
 
     useEffect(() => {
-        fetchRealEstate(filter);
-    }, [filter, fetchRealEstate]);
+        fetchRealEstate(filter, realEstateTypeFilter);
+    }, [filter, realEstateTypeFilter, fetchRealEstate]);
 
     if (isFetching) {
         return (<div>IS FETCHING...</div>)
@@ -53,17 +53,18 @@ function RealEstateList(props) {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetchRealEstate: (filter) => dispatch(fetchRealEstate(filter)),
-        setFilter: (filter) => dispatch(setFilter(filter)),
+        fetchRealEstate: (filter, type) => dispatch(fetchRealEstate(filter, type)),
+        setFilter: (filter, type) => dispatch(setFilter(filter, type)),
     }
 };
 
 function mapStateToProps(state) {
-    const {realEstateList, isFetching, filter} = state.realEstateReducer;
+    const {realEstateList, isFetching, filter, realEstateTypeFilter} = state.realEstateReducer;
     return {
         realEstateList,
         isFetching,
         filter,
+        realEstateTypeFilter
     }
 }
 

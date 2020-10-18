@@ -1,6 +1,7 @@
 package com.scout24.realestate.service;
 
 import com.scout24.realestate.domain.RealEstate;
+import com.scout24.realestate.domain.RealEstateType;
 import com.scout24.realestate.repository.RealEstateRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,6 +23,14 @@ public class RealEstateService {
 
     public List<RealEstate> filterByPrice() {
         return realEstateRepository.filterByPrice(LOWEST_PRICE, HIGHEST_PRICE);
+    }
+
+    public List<RealEstate> filterByPriceAndType(final RealEstateType type) {
+        return realEstateRepository.filterByPriceAndType(LOWEST_PRICE, HIGHEST_PRICE, type);
+    }
+
+    public List<RealEstate> filterAllByType(final RealEstateType type) {
+        return realEstateRepository.findAllByType(type);
     }
 
     public RealEstate save(RealEstate realEstate) {

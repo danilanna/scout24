@@ -13,8 +13,8 @@ export function setError(status) {
     return {type: REAL_ESTATE.SET_ERROR, status: status};
 }
 
-export function setFilter(filter) {
-    return {type: REAL_ESTATE.SET_FILTER, filter: filter};
+export function setFilter(filter, type) {
+    return {type: REAL_ESTATE.SET_FILTER, filter: filter, realEstateTypeFilter: type};
 }
 
 function saved(realEstate) {
@@ -25,10 +25,10 @@ function save(realEstate) {
     return {type: REAL_ESTATE.SAVE, realEstate: realEstate};
 }
 
-export function fetchRealEstate(filter) {
+export function fetchRealEstate(filter, type) {
     return dispatch => {
         dispatch(loadRealEstate());
-        return RealEstateApi.getRealEstateList(filter).then(realEstateList => {
+        return RealEstateApi.getRealEstateList(filter, type).then(realEstateList => {
             dispatch(loaded(realEstateList));
         }).catch(() => {
             dispatch(setError(true));

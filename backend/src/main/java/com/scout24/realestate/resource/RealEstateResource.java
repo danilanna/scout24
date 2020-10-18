@@ -1,6 +1,7 @@
 package com.scout24.realestate.resource;
 
 import com.scout24.realestate.domain.RealEstate;
+import com.scout24.realestate.domain.RealEstateType;
 import com.scout24.realestate.service.RealEstateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -23,12 +24,16 @@ public class RealEstateResource {
     private final RealEstateService realEstateService;
 
     @GetMapping
-    public ResponseEntity<List<RealEstate>> find(@RequestParam(required = false) boolean filter) {
-        if (!filter) {
-            return ResponseEntity.ok().body(realEstateService.findAll());
-        } else {
+    public ResponseEntity<List<RealEstate>> find(@RequestParam(required = false) boolean filterByPrice,
+                                                 @RequestParam(required = false) RealEstateType type) {
+        if (filterByPrice && type == null){
             return ResponseEntity.ok().body(realEstateService.filterByPrice());
+        } else if (!filterByPrice && type != null){
+            return ResponseEntity.ok().body(realEstateService.filterAllByType(type));
+        } else if (filterByPrice){
+            return ResponseEntity.ok().body(realEstateService.filterByPriceAndType(type));
         }
+        return ResponseEntity.ok().body(realEstateService.findAll());
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

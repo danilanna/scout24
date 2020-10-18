@@ -1,11 +1,11 @@
 const host = process.env.REACT_APP_HOST;
 const path = '/real-estate';
-const basePath = host + path;
+const basePath = `${host}${path}`;
 
 export default class RealEstateApi {
 
-    static getRealEstateList(filter) {
-        const url = basePath + '?filter=' + filter;
+    static getRealEstateList(filter, type) {
+        const url = `${basePath}?filterByPrice=${filter}&type=${type ? type : ""}`;
         return fetch(url).then(response => {
             if (response.ok) {
                 return response.json();

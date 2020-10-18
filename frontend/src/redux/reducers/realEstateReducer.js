@@ -23,6 +23,7 @@ export default function realEstateReducer(state = initialState, action) {
         case REAL_ESTATE.SET_FILTER:
             return Object.assign({}, state, {
                 filter: action.filter,
+                realEstateTypeFilter: action.realEstateTypeFilter
             });
         case REAL_ESTATE.SAVE:
             return Object.assign({}, state, {

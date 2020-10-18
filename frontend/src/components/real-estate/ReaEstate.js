@@ -38,7 +38,7 @@ function RealEstate(props) {
                             <label htmlFor="type">Real Estate Type:</label>
                         </div>
                         <div className="inputField">
-                            <select name="type">
+                            <select name="type" required={true}>
                                 <option value="APARTMENT_BUY">APARTMENT_BUY</option>
                                 <option value="APARTMENT_RENT">APARTMENT_RENT</option>
                                 <option value="HOUSE_BUY">HOUSE_BUY</option>
@@ -52,7 +52,7 @@ function RealEstate(props) {
                             <label htmlFor="type">Address:</label>
                         </div>
                         <div className="inputField">
-                            <input type="text" name="street" />
+                            <input type="text" name="street" required={true} maxLength={250}/>
                         </div>
                     </div>
 
@@ -61,7 +61,7 @@ function RealEstate(props) {
                             <label htmlFor="type">House Number:</label>
                         </div>
                         <div className="inputField">
-                            <input type="text" name="houseNumber" />
+                            <input type="text" name="houseNumber" required={true} maxLength={250}/>
                         </div>
                     </div>
 
@@ -70,7 +70,7 @@ function RealEstate(props) {
                             <label htmlFor="type">Postcode:</label>
                         </div>
                         <div className="inputField">
-                            <input type="text" name="postcode" />
+                            <input type="text" name="postcode" required={true}/>
                         </div>
                     </div>
 
@@ -79,7 +79,7 @@ function RealEstate(props) {
                             <label htmlFor="type">City:</label>
                         </div>
                         <div className="inputField">
-                            <input type="text" name="city" />
+                            <input type="text" name="city" required={true} maxLength={250}/>
                         </div>
                     </div>
 
@@ -88,7 +88,7 @@ function RealEstate(props) {
                             <label htmlFor="type">Living Area:</label>
                         </div>
                         <div className="inputField">
-                            <input type="text" name="livingArea" />
+                            <input type="text" name="livingArea" required={true}/>
                         </div>
                     </div>
 
@@ -124,7 +124,7 @@ function RealEstate(props) {
                             <label htmlFor="imageURL">Image URL:</label>
                         </div>
                         <div className="inputField">
-                            <input type="text" name="imageURL" />
+                            <input type="text" name="imageURL" maxLength={250}/>
                         </div>
                     </div>
 

@@ -4,5 +4,6 @@ export default {
     isError: false,
     isSaved: false,
     filter: false,
+    realEstateTypeFilter: "",
     realEstate: {},
 }

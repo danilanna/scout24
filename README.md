@@ -41,3 +41,12 @@ Launches the test runner in the interactive watch mode.<br />
 ### Build to deploy: `npm run build`
 
 Builds the app for production to the `build` folder.<br />
+
+# Known constraints and/or limitations
+There is no interactive map - This was not possible once I did not have enough time to do it. I would have to convert all the entries first into latitute and logintude, and then put the pin on the map.
+
+# Possible further improvements
+Add the interactive map
+
+# Considerations of work that would be needed to productionize your code
+Add a container such as Docker, in order to provide the same environment required to run the application and also to easy the deployment
