@@ -1,0 +1,60 @@
+databaseChangeLog:
+  - changeSet:
+      id: load-data-real-estate
+      author: daniel_lanna
+      context: prod
+      preConditions:
+        - onFail: MARK_RAN
+          tableExists:
+            tableName: real_estate
+      changes:
+        - loadData:
+            columns:
+              - column:
+                  header: listingId
+                  name: id
+                  type: NUMERIC
+              - column:
+                  header: realEstateType
+                  name: type
+                  type: STRING
+              - column:
+                  header: street
+                  name: street
+                  type: STRING
+              - column:
+                  header: houseNumber
+                  name: house_number
+                  type: STRING
+              - column:
+                  header: postcode
+                  name: postcode
+                  type: NUMERIC
+              - column:
+                  header: city
+                  name: city
+                  type: STRING
+              - column:
+                  header: livingArea
+                  name: living_area
+                  type: NUMERIC
+              - column:
+                  header: siteArea
+                  name: site_area
+                  type: NUMERIC
+              - column:
+                  header: rentalPrice
+                  name: rental_price
+                  type: NUMERIC
+              - column:
+                  header: salesPrice
+                  name: sales_price
+                  type: NUMERIC
+              - column:
+                  header: imageURL
+                  name: image_url
+                  type: STRING
+            file: liquibase/listings.csv
+            primaryKey: listingId
+            separator: ","
+            tableName: real_estate

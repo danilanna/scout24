@@ -1,0 +1,8 @@
+export const REAL_ESTATE = {
+    FETCH: 'FETCH',
+    FETCH_DONE: 'FETCH_DONE',
+    SET_ERROR: 'SET_ERROR',
+    SET_FILTER: 'SET_FILTER',
+    SAVE: 'SAVE',
+    SAVE_DONE: 'SAVE_DONE',
+};

@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-real-estate
+      author: daniel_lanna
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: real_estate
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: real_estate_primary_key
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: type
+                  type: VARCHAR(15)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: street
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: house_number
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: postcode
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: city
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: living_area
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: true
+                  name: site_area
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: true
+                  name: rental_price
+                  type: DECIMAL
+              - column:
+                  constraints:
+                    nullable: true
+                  name: sales_price
+                  type: DECIMAL
+              - column:
+                  constraints:
+                    nullable: true
+                  name: image_url
+                  type: VARCHAR(250)
+            tableName: real_estate
