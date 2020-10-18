@@ -26,9 +26,9 @@ public class RealEstateTestHelper {
 
     public static List<RealEstate> buildRealEstateFilteredList(){
         return Arrays.asList(
-                buildRealEstate().salesPrice(BigDecimal.valueOf(400L)).build(),
-                buildRealEstate().salesPrice(BigDecimal.valueOf(600L)).build(),
-                buildRealEstate().salesPrice(BigDecimal.valueOf(450L)).build(),
+                buildRealEstate().salesPrice(BigDecimal.valueOf(400L)).type(RealEstateType.HOUSE_BUY).build(),
+                buildRealEstate().salesPrice(BigDecimal.valueOf(600L)).type(RealEstateType.HOUSE_RENT).build(),
+                buildRealEstate().salesPrice(BigDecimal.valueOf(450L)).type(RealEstateType.APARTMENT_RENT).build(),
                 buildRealEstate().rentalPrice(BigDecimal.valueOf(400L)).build(),
                 buildRealEstate().rentalPrice(BigDecimal.valueOf(600L)).build(),
                 buildRealEstate().rentalPrice(BigDecimal.valueOf(450L)).build());

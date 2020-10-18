@@ -42,11 +42,21 @@ Launches the test runner in the interactive watch mode.<br />
 
 Builds the app for production to the `build` folder.<br />
 
-# Known constraints and/or limitations
-There is no interactive map - This was not possible once I did not have enough time to do it. I would have to convert all the entries first into latitute and logintude, and then put the pin on the map.
+# A description of how your app works
+The app is very simple. It's responsive, it uses in the frontend react, react-router, redux, and in the backend Java 11, Spring and Spring Boot.
+The backend uses in-memory database, which is populated by using the listings.csv file. This was done using liquibase.
+The frontend consumes the Rest API that the backend provides.
+The backend code has 100% coverage that contains integration tests, which tests the API contract, and unit tests, which asserts the functionality of the business classes.
+
+# Known limitations
+- There is no interactive map
+    - This was not possible once I did not have enough time to do it. I would have to convert all the address first into latitude and longitude, and then with the latitude and longitude put the pin on the map.<br />
 
 # Possible further improvements
-Add the interactive map
+* Add the interactive map
+* Add frontend tests
+* Add a container such as Docker, in order to provide the same environment required to run the application and also to easy the deployment and scalability.
+* Add a nice styling, such as material design.
 
 # Considerations of work that would be needed to productionize your code
-Add a container such as Docker, in order to provide the same environment required to run the application and also to easy the deployment
+* The code is prod-ready, once the jar built can be deployed anywhere, and also the npm run build provides the necessary bundles in order to deploy the frontend as well.

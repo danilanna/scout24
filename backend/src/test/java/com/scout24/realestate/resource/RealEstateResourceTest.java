@@ -53,12 +53,30 @@ public class RealEstateResourceTest {
     }
 
     @Test
-    public void shouldGetOnlyFilteredValues() throws Exception {
-        this.mockMvc.perform(get("/real-estate?filter=true"))
+    public void shouldGetOnlyPricesBetween400And600() throws Exception {
+        this.mockMvc.perform(get("/real-estate?filterByPrice=true"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(APPLICATION_JSON_VALUE))
                 .andExpect(jsonPath("$", hasSize(6)));
+    }
+
+    @Test
+    public void shouldGetOnlyPricesBetween400And600AndByType() throws Exception {
+        this.mockMvc.perform(get("/real-estate?filterByPrice=true&type=APARTMENT_RENT"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$", hasSize(1)));
+    }
+
+    @Test
+    public void shouldGetOnlyByType() throws Exception {
+        this.mockMvc.perform(get("/real-estate?filterByPrice=false&type=APARTMENT_BUY"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(APPLICATION_JSON_VALUE))
+                .andExpect(jsonPath("$", hasSize(9)));
     }
 
     @Test
